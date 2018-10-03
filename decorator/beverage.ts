@@ -1,13 +1,13 @@
 abstract class Beverage {
    description: string = 'Unknown Beverage'
-   getDescription():string{
+   get Description():string{
       return this.description
    }
    abstract cost()
 }
 
 abstract class CondimentDecorator extends Beverage {
-   abstract getDescription()
+   abstract get Description()
 }
 
 class Espresso extends Beverage {
@@ -62,8 +62,8 @@ class Mocha extends CondimentDecorator {
       this.beverage = beverage
    }
 
-   getDescription(){
-      return `${this.beverage.getDescription()} Mocha`
+   get Description(){
+      return `${this.beverage.Description} Mocha`
    }
 
    cost(){
@@ -79,8 +79,8 @@ class Whip extends CondimentDecorator {
       this.beverage = beverage
    }
 
-   getDescription(){
-      return `${this.beverage.getDescription()} Whip`
+   get Description(){
+      return `${this.beverage.Description} Whip`
    }
 
    cost(){
@@ -90,14 +90,14 @@ class Whip extends CondimentDecorator {
 
 
 let expresso = new Espresso()
-console.log(expresso.getDescription() + ' ' + expresso.cost())
+console.log(expresso.Description + ' ' + expresso.cost())
 
 let darkRoast = new DarkRoast()
 darkRoast = new Mocha(darkRoast)
 darkRoast = new Mocha(darkRoast)
 darkRoast = new Whip(darkRoast)
 
-console.log(darkRoast.getDescription() + ' ' + darkRoast.cost())
+console.log(darkRoast.Description + ' ' + darkRoast.cost())
 
 
 
